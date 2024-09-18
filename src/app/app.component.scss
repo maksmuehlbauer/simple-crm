@@ -1,0 +1,62 @@
+@import './../styles.scss';
+
+.mat-drawer-container {
+    height: 100vh;
+}
+
+.menu-icon {
+    cursor: pointer;
+    margin-right: 16px;
+}
+
+.sidenav {
+    width: 300px;
+
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+
+        margin: 32px 0;
+        li {
+            @include display($jc: flex-start);
+            gap: 16px;
+            height: 48px;
+            font-size: 16px;
+            padding: 0 16px;
+            &:hover {
+                cursor: pointer;
+                background-color: rgba(0, 0, 0, 0.7);
+            }
+        }
+    }
+}
+
+.logo-container {
+    min-height: 56px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.7);
+    @include display($jc: flex-start);
+    padding: 0 16px;
+    gap: 8px;
+    font-size: 16px;
+    >mat-icon {
+        width: 32px;
+        height: 32px;
+    }
+    >.logo-icon {
+        font-size: 32px;
+    }
+    >.logo-text {
+        margin: 0 !important;
+    }
+}
+
+mat-toolbar {
+    min-height: 56px;
+    height: 56px;
+}
+
+.router-container {
+    padding: 56px;
+}
+
