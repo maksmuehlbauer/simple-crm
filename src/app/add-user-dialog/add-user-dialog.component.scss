@@ -1,0 +1,9 @@
+@import './../../styles.scss';
+
+mat-dialog-actions {
+    @include display();  
+    gap: 32px; 
+    >button {
+        font-size: 16px;
+    }
+}

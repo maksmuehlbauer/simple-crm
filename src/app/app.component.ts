@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import {MatToolbarModule} from '@angular/material/toolbar';
@@ -6,6 +6,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatIconModule} from '@angular/material/icon';
 import { RouterLink } from '@angular/router';
+import { Firestore } from '@angular/fire/firestore';
 
 
 @Component({
@@ -22,4 +23,12 @@ import { RouterLink } from '@angular/router';
 })
 export class AppComponent {
   title = 'simple-crm';
+  firestore: Firestore = inject(Firestore)
+
+  constructor() {
+
+  }
+
+  // https://github.com/angular/angularfire/blob/main/docs/install-and-setup.md
+
 }
