@@ -4,17 +4,18 @@
 
 <mat-card>
     <mat-card-content>
-        <table>
-            <tr class="mb-16">
+        <table class="user-table">
+            <tr>
                 <th>Name</th>
                 <th>E-Mail</th>
                 <th>City</th>
             </tr>
-            <tr>
-                <td>Max</td>
-                <td>mail(at)web.de</td>
-                <td>Unna</td>
+            <tr *ngFor="let user of allUsers">
+                <td>{{ user.firstName }} {{ user.lastName }}</td>
+                <td>{{ user.mail }}</td>
+                <td>{{ user.city }}</td>
             </tr>
+
         </table>
     </mat-card-content>
 </mat-card>
