@@ -4,19 +4,19 @@
   <div class="pt-16">
     <mat-form-field appearance="outline" color="accent" class="mr-16">
       <mat-label>First Name</mat-label>
-      <input [disabled]="loading" matInput [(ngModel)]="user.firstName" placeholder="Placeholder">
+      <input [disabled]="loading" matInput [(ngModel)]="user.firstName" placeholder="First Name">
       <!-- <mat-hint>Hint</mat-hint> -->
     </mat-form-field>
     <mat-form-field appearance="outline" color="accent">
       <mat-label>Last Name</mat-label>
-      <input [disabled]="loading" matInput [(ngModel)]="user.lastName" placeholder="Placeholder" >
+      <input [disabled]="loading" matInput [(ngModel)]="user.lastName" placeholder="Last Name" >
       <!-- <mat-hint>Hint</mat-hint> -->
     </mat-form-field>
   </div>
   <div>
     <mat-form-field appearance="outline" color="accent" class="w-100">
       <mat-label>Birthday</mat-label>
-      <input [disabled]="loading"  matInput [(ngModel)]="birthDate" placeholder="Placeholder" [matDatepicker]="picker">
+      <input [disabled]="loading"  matInput [(ngModel)]="birthDate" placeholder="Birthdate" [matDatepicker]="picker">
       <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
       <!-- <mat-hint>Hint</mat-hint> -->
@@ -25,31 +25,31 @@
   <div>
     <mat-form-field appearance="outline" color="accent" class="mr-16" class="w-100">
       <mat-label>E-Mail</mat-label>
-      <input [disabled]="loading"  matInput [(ngModel)]="user.mail" placeholder="Placeholder">
+      <input [disabled]="loading"  matInput [(ngModel)]="user.mail" placeholder="E-Mail">
       <!-- <mat-hint>Hint</mat-hint> -->
     </mat-form-field>
   </div>
   <div>
     <mat-form-field appearance="outline" color="accent" class="mr-16" class="w-100">
       <mat-label>Street + No.</mat-label>
-      <input [disabled]="loading"  matInput [(ngModel)]="user.street" placeholder="Placeholder">
+      <input [disabled]="loading"  matInput [(ngModel)]="user.street" placeholder="Street">
       <!-- <mat-hint>Hint</mat-hint> -->
     </mat-form-field>
   </div>
   <div>
     <mat-form-field appearance="outline" color="accent" class="mr-16">
       <mat-label>Zip Code</mat-label>
-      <input [disabled]="loading"  matInput [(ngModel)]="user.zipCode" placeholder="Placeholder">
+      <input [disabled]="loading"  matInput [(ngModel)]="user.zipCode" placeholder="Zip Code">
       <!-- <mat-hint>Hint</mat-hint> -->
     </mat-form-field>
     <mat-form-field appearance="outline" color="accent">
       <mat-label>City</mat-label>
-      <input [disabled]="loading"  matInput [(ngModel)]="user.city" placeholder="Placeholder">
+      <input [disabled]="loading"  matInput [(ngModel)]="user.city" placeholder="City">
       <!-- <mat-hint>Hint</mat-hint> -->
     </mat-form-field>
   </div>
 </mat-dialog-content>
 <mat-dialog-actions>
-  <button [disabled]="loading"  mat-button>Cancel</button>
-  <button [disabled]="loading"  mat-button (click)="saveUser()">Save</button>
+  <button [disabled]="loading" mat-button (click)="dialogRef.close()">Cancel</button>
+  <button [disabled]="loading" mat-button (click)="saveUser()">Save</button>
 </mat-dialog-actions>

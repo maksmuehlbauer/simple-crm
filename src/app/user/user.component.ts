@@ -8,6 +8,7 @@ import { AddUserDialogComponent } from '../add-user-dialog/add-user-dialog.compo
 import { MatCardModule } from '@angular/material/card';
 import { Firestore, collection, doc, onSnapshot, snapToData } from '@angular/fire/firestore';
 import { OnInit, OnDestroy } from '@angular/core';
+import { RouterLink } from '@angular/router';
 
 
 
@@ -19,7 +20,8 @@ import { OnInit, OnDestroy } from '@angular/core';
     MatIconModule, 
     MatTooltipModule, 
     MatCardModule,
-    CommonModule],
+    CommonModule,
+    RouterLink],
   templateUrl: './user.component.html',
   styleUrl: './user.component.scss'
 })
@@ -55,7 +57,7 @@ export class UserComponent implements OnInit, OnDestroy{
       this.allUsers = users.docs.map(doc => {
         return { id: doc.id, ...doc.data() }; // gather Data and ID
       });
-      // console.log('All users with IDs:', this.allUsers); 
+      console.log('All users with IDs:', this.allUsers); 
     }, (error) => {
       // console.log("Error fetching documents", error);
     });

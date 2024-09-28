@@ -1,0 +1,44 @@
+@import './../../styles.scss';
+
+.user-card {
+    background-color: #FFA500;
+    min-height: 250px;
+    @include display($jc: flex-start, $ai: flex-end);
+    flex-direction: row;
+    padding: 24px;
+    gap: 24px;
+    img {
+        height: 100px;
+        width: 100px;
+        object-fit: cover;
+        border-radius: 100%;
+    }
+    .user-detail {
+        height: 100px;
+        @include display($ai: flex-start, $jc: center);
+        flex-direction: column;
+        margin: 0;
+        h2{
+            margin: 0;
+            font-size: 24px;
+        }
+        h3{
+            margin: 0;
+        }
+    }
+}
+
+.user-information {
+    padding: 24px;
+    mat-card-header {
+        font-size: 24px
+    }
+    ul {
+        font-size: 16px;
+        list-style-type: none;
+        padding: 0;
+        li {
+            margin-bottom: 8px;
+        }
+    }
+}
