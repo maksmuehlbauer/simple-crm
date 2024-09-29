@@ -4,18 +4,30 @@ import { MatCardModule } from '@angular/material/card';
 import { ActivatedRoute } from '@angular/router';
 import { collection, Firestore, onSnapshot, doc } from '@angular/fire/firestore';
 import { User } from '../../models/user.class';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatDialog } from '@angular/material/dialog';
+import { EditUserComponent } from '../dialog-edit-user/dialog-edit-user.component';
+import { EditAddressComponent } from '../dialog-edit-address/dialog-edit-address.component';
 
 
 @Component({
   selector: 'app-user-detail',
   standalone: true,
-  imports: [CommonModule, MatCardModule],
+  imports: [
+    CommonModule, 
+    MatCardModule,
+    MatButtonModule,
+    MatIconModule,
+    MatMenuModule,
+    ],
   templateUrl: './user-detail.component.html',
   styleUrl: './user-detail.component.scss'
 })
 export class UserDetailComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(private route: ActivatedRoute, public dialog: MatDialog) {}
   
   userId: any = '';
   user: User = new User();
@@ -46,5 +58,18 @@ export class UserDetailComponent implements OnInit {
         // console.log("Current data: ", doc.data());
         this.user = new User(doc.data())
     });
+  }
+
+  editUserDetail(): void {
+    const dialog = this.dialog.open(EditUserComponent);
+    dialog.componentInstance.user = new User(this.user.toJSON()); // new User(this.user....) creates a copy and didnt update it localy
+    dialog.componentInstance.userId = this.userId;
+  }
+
+
+  editAdressDetail(): void {
+    const dialog = this.dialog.open(EditAddressComponent);
+    dialog.componentInstance.user = new User(this.user.toJSON()); // new User(this.user....) creates a copy and didnt update it localy
+    dialog.componentInstance.userId = this.userId;
   }
 }

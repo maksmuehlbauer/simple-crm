@@ -8,11 +8,8 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { FormsModule } from '@angular/forms';
 import { User } from '../../models/user.class';
 import { Firestore, collection, addDoc } from '@angular/fire/firestore';
-// import { initializeApp, FirebaseApp } from 'firebase/app'; // Firebase-Initialisierung
-// import { getFirestore } from 'firebase/firestore';  // Firestore holen
-// import { Observable } from 'rxjs';
-import {MatProgressBarModule} from '@angular/material/progress-bar';
-import { UserComponent } from '../user/user.component';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+// import { UserComponent } from '../user/user.component';
 
 
 
@@ -38,22 +35,8 @@ export class AddUserDialogComponent {
   firestore: Firestore = inject(Firestore);
   loading = false;
 
-  constructor(public dialogRef: MatDialogRef<UserComponent>) {
-    
-    // // Firebase-Konfiguration
-    // const firebaseConfig = {
-    //   apiKey: "AIzaSyALTWvSEaoTNzpVpW8aFGVYbQpEzb0ap1M",
-    //   authDomain: "simple-crm-d274f.firebaseapp.com",
-    //   projectId: "simple-crm-d274f",
-    //   storageBucket: "simple-crm-d274f.appspot.com",
-    //   messagingSenderId: "465755090674",
-    //   appId: "1:465755090674:web:1b802c5d96682a2f3baa6b"
-    // };
-
-    // // Firebase-App initialisieren (einmalig)
-    // const app: FirebaseApp = initializeApp(firebaseConfig);
-    // this.firestore = getFirestore(app);
-  }
+  constructor(public dialogRef: MatDialogRef<AddUserDialogComponent>) { }
+  // constructor(public dialogRef: MatDialogRef<UserComponent>) { } --> in UserComponent doesnt exist MatdialogRef it works but make no sense
 
 
   async saveUser() {
