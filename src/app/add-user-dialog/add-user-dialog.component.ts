@@ -35,27 +35,30 @@ export class AddUserDialogComponent {
   firestore: Firestore = inject(Firestore);
   loading = false;
 
-  constructor(public dialogRef: MatDialogRef<AddUserDialogComponent>) { }
+  constructor(public dialogRef: MatDialogRef<AddUserDialogComponent>) { } // gives access to dialogRef in the AddUserDialogComponent
   // constructor(public dialogRef: MatDialogRef<UserComponent>) { } --> in UserComponent doesnt exist MatdialogRef it works but make no sense
 
 
   async saveUser() {
     this.user.birthDate = this.birthDate.getTime()
-    console.log('user created: ', this.user)
     this.loading = true;
       try {
-        const userCollection = collection(this.firestore, 'users');
-        await addDoc(userCollection, this.user.toJSON())
-        console.log('user succesfully added to Firestore');
+        await addDoc(this.getUsersFromDB(), this.user.toJSON())
         this.loading = false;
         this.closeDialog()
+        // console.log('user succesfully added to Firestore');
       } catch (error) {
         console.log('Error add user to Firestore', error)
       }
     }
     
+
     closeDialog() {
       this.dialogRef.close();
+  }
+
+  getUsersFromDB() {
+    return collection(this.firestore, 'users');
   }
 }
 

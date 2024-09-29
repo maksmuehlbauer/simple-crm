@@ -1,4 +1,4 @@
-<button mat-fab color="primary" matTooltip="Add User" [matTooltipPosition]="'above'" (click)="openDialog()">
+<button mat-fab color="primary" matTooltip="Add User" [matTooltipPosition]="'above'" (click)="openDialog()" class="add-btn">
     <mat-icon>add</mat-icon>
 </button>
 
@@ -9,11 +9,22 @@
                 <th>Name</th>
                 <th>E-Mail</th>
                 <th>City</th>
+                <th>option</th>
             </tr>
             <tr *ngFor="let user of allUsers" routerLink="/user/{{user.id}}">
                 <td>{{ user.firstName }} {{ user.lastName }}</td>
                 <td>{{ user.mail }}</td>
                 <td>{{ user.city }}</td>
+
+                <td (click)="handlePropagation($event)">
+                    <button mat-fab color="primary" class="more-vert-btn" [matMenuTriggerFor]="vertmenu">
+                        <mat-icon>more_vert</mat-icon>
+                    </button>
+                    <mat-menu #vertmenu="matMenu">
+                        <button mat-menu-item (click)="deleteUser(user.id)">delete</button>
+                    </mat-menu>
+                </td>
+                
             </tr>
 
         </table>
